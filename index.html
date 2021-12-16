@@ -1,14 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project Name</title>
-    <link rel="stylesheet" href="./index.css" />
-  </head>
-  <body class="center">
-    <p class="center">My App</p>
-  </body>
-  <script src="index.js"></script>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="index.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <title>BootCamp</title>
+    </head>
+    <body>
+        <div class="container ">
+            <div class="box">
+                <div class="header">
+                    <img src="Profile4.png" alt="Profile"/>
+                    <span id="id">
+                        <span>Pooya Goodarzi</span>
+                        <br>
+                        <span style="color : gray">@Redskull422</span>
+                    </span>
+                    <p id="Tweet">Your Tweet Here!</p>
+                    <p id="Time">12:00 PM . Dec 16, 2021</p>
+                    <hr>
+                </div>  
+                <div class="buttons">
+                    <button onclick="commentHandler()"><i class="far fa-comment" id="comment"></i></button>
+                    <button onclick="retweetHandler()"><i class="fas fa-retweet" id="retweet"></i></button>
+                    <button onclick="LikeHandler()"><i class="fas fa-heart" id="Like"></i></button>
+                    <button onclick="uploadHandler()"><i class="fas fa-upload" id="upload "></i></button>
+                </div>      
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
 </html>
