@@ -1,6 +1,3 @@
-# Project template
+#Twitter
 
-## Instructions
-
-- fork repo template
-- implement your design
+Ishan Project
