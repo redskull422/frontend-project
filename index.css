@@ -44,6 +44,7 @@ button{
     border :none;
     color : white;
     font-size : 18px;
+    cursor : pointer;
 }
 button:hover {
     transform: scale(1.2);
