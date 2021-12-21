@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <title>BootCamp</title>
+    </head>
+
+
+    <body>
+        <style>
+            .container{
+                display : flex;
+                justify-content :  center;
+            }
+            .box{
+                background-color :#243447;
+                width : 500px;
+                height : 250px;
+                border-radius: 10px;
+                padding : 10px;
+            }
+            .header{
+                background-color: #243447;
+                height : 170px;
+                padding : 15px;
+            }
+            img{
+                display:inline;
+                width : 60px;
+                height : 60px;
+                border-radius: 100%;
+            }
+            #id{
+                color: #ffff;
+                display : inline;
+                position: absolute;
+                top : 7%;
+                margin-left : 25px;
+                font-size : 18px;
+            }
+            #Time{
+                color : #a9a9a9;
+            }
+            #tweet{
+                color : White;
+                font-size: 22px;
+            }
+            .buttons{
+                display :flex;
+                justify-content: center;
+                align-content: center;
+            }
+            button{
+                margin-left :25px;
+                margin-right : 25px;
+                margin-top : 10px;
+                background-color : #243447;
+                border :none;
+                color : white;
+                font-size : 18px;
+                cursor : pointer;
+            }
+            button:hover{
+                transform: scale(1.2);
+            }
+        </style>
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <div id="root">
+
+        </div>
+        <script type="text/javascript">
+            // let root = document.getElementById("root")
+            // let h1 = document.createElement("h1")
+            // root.appendChild(h1)
+            // h1.innerHTML = "hello world"
+        </script>
+        <script type="text/javascript">
+            let root = document.getElementById("root")
+
+            let container = React.createElement("div",{className:'container'},box())
+            ReactDOM.render(container,root)
+
+            function box(){
+                return React.createElement("div", {className:'box'},header(),ButtonSection())
+            }
+            function header(){
+                return React.createElement("div",{className:'header'},img(),id(),p1(),p2(),hr())
+            }
+            function img(){
+                return React.createElement("img",{src : "Profile4.png", alt : "#"})
+            }
+            function id (){
+                return React.createElement("span",{ id : "id"},span1(),br(),span2())
+            }
+            function span1(){
+                return React.createElement("span",{},"Pooya Goodarzi")
+            }
+            function span2(){
+                return React.createElement("span",{},"@RedSkull422")
+            }
+            function br(){
+                return React.createElement("br",{})
+            }
+            function p1(){
+                return React.createElement("p",{id : "tweet"}, "Your Tweet Here !")
+            }
+            function p2(){
+                return React.createElement("p", {id : "Time"}, "12:00 PM . Dec 16, 2021")
+            }
+            function hr(){
+                return React.createElement("hr",{})
+            }
+            function ButtonSection(){
+                return React.createElement("div", {className : "buttons"},CommentButton(),LikeButton(),retweetButton(), UploadButton())
+            }
+            function LikeButton(){
+                return React.createElement("button",{onClick : ()=>{console.log ("clicked Like button")}},LikeIcon())
+            }
+            function retweetButton(){
+                return React.createElement("button",{onClick : ()=>{console.log ("clicked retweet button")}}, RetweetIcon())
+            }
+            function CommentButton(){
+                return React.createElement("button",{onClick : ()=>{console.log("clicked Comment Button")}}, CommentIcon())
+            }
+            function UploadButton(){
+                return React.createElement("button",{onClick : ()=>{console.log("clicked Upload Button")}},UploadIcon())
+            }
+            function CommentIcon(){
+                return React.createElement("i",{className : "far fa-comment"})
+            }
+            function LikeIcon(){
+                return React.createElement("i",{className : "fas fa-heart"})
+            }
+            function RetweetIcon(){
+                return React.createElement("i",{className : "fas fa-retweet"})
+            }
+            function UploadIcon(){
+                return React.createElement("i",{className : "fas fa-upload"})
+            }
+        </script>
+
+    </body>
+</html>
