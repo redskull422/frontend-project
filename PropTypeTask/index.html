@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="styleSheet" href="style.css"/>
+        <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <title>BootCamp</title>
+    </head>
+    <body>
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+        <div id="root">
+
+        </div>
+        <script type="text/babel">
+            function Buttons(){
+                return(
+                    <div className="buttons">
+                        <button onClick={handler}><i className="far fa-comment" id="Comment"></i><Increment number = {+"5"}/></button>
+                        <button onClick={handler}><i className="fas fa-retweet" id="retweet"><Increment number = {231231}/></i></button>
+                        <button onClick={handler}><i className="fas fa-heart" id="like"></i><Increment number = {512}/></button>
+                        <button onClick={handler}><i className="fas fa-upload" id="upload "><Increment number = {12345}/></i></button>
+                        
+                    </div>
+                )
+            }
+            function Header(){
+                return(
+                <div className="header">
+                    <img src="Profile4.png" alt="#"/>
+                    <span id="id">
+                        <span>Pooya Goodarzi</span>
+                        <br/>
+                        <span>@Redskull422</span>
+                    </span>
+                    <p id="Tweet">Your Tweet Here!</p>
+                    <p id="Time">12:00 PM . Dec 16, 2021</p>
+                    <hr/>
+                </div>
+                )
+            }
+            function Box(){
+                return(
+                    <div className="box"><Header/><Buttons/></div>
+                )
+            }
+            function App(){
+                return(
+                    <div className="container">
+                        <Box/>
+                    </div>
+                )
+            }
+
+
+            function handler (btn){
+                console.log("you Clicked " + btn.target.id)
+            }
+            function Increment({number}){
+                const plus1 = number + 213
+                return (
+                    <span>{plus1}</span>
+                )
+            }
+            Increment.propTypes  = {
+                number  : PropTypes.number,
+            }
+ 
+            
+
+
+            ReactDOM.render(<App/>,document.getElementById("root"))
+        </script>
+    </body>
+</html>

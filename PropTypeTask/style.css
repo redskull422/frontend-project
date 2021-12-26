@@ -1,0 +1,55 @@
+.container{
+    display : flex;
+    justify-content :  center;
+}
+.box{
+    background-color :#243447;
+    width : 500px;
+    height : 250px;
+    border-radius: 10px;
+    padding : 10px;
+}
+.header{
+    background-color: #243447;
+    height : 170px;
+    padding : 15px;
+}
+img{
+    display:inline;
+    width : 60px;
+    height : 60px;
+    border-radius: 100%;
+}
+#id{
+    color: #ffff;
+    display : inline;
+    position: absolute;
+    top : 7%;
+    margin-left : 25px;
+    font-size : 18px;
+}
+#Time{
+    color : #a9a9a9;
+}
+#tweet{
+    color : White;
+    font-size: 22px;
+}
+.buttons{
+    display :flex;
+    justify-content: center;
+    align-content: center;
+}
+button{
+    margin-left :25px;
+    margin-right : 25px;
+    margin-top : 10px;
+    background-color : #243447;
+    border :none;
+    color : white;
+    font-size : 18px;
+    cursor : pointer;
+}
+button:hover{
+    transform: scale(1.2);
+}
