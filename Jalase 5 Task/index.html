@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <title>BootCamp</title>
+  </head>
+  <body>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+    <div id="root"></div>
+    <script type="text/babel">
+      function Container() {
+        return (
+          <div className="container">
+            <Box />
+          </div>
+        );
+      }
+      function Box() {
+        return (
+          <div className="box animate__animated animate__zoomIn">
+            <Table />
+          </div>
+        );
+      }
+      function Table() {
+        const [acid, setAcid] = React.useState({});
+        React.useEffect(() => {
+          fetch("https://www.dnd5eapi.co/api/spells/acid-arrow")
+            .then((response) => response.json())
+            .then((json) => setAcid(json));
+        }, []);
+        const [acidSplash, setAcidSplash] = React.useState({});
+        React.useEffect(() => {
+          fetch("https://www.dnd5eapi.co/api/spells/acid-splash")
+            .then((response) => response.json())
+            .then((json) => setAcidSplash(json));
+        }, []);
+        const [aid, setAid] = React.useState({});
+        React.useEffect(() => {
+          fetch("https://www.dnd5eapi.co/api/spells/aid")
+            .then((response) => response.json())
+            .then((json) => setAid(json));
+        }, []);
+        return (
+          <table>
+            <thead>
+              <tr>
+                <th>index</th>
+                <th>Spells</th>
+                <th>AttackType </th>
+                <th>level</th>
+                <th>Casting Time</th>
+                <th>Duration</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>{acid.name}</td>
+                <td>{acid.attack_type}</td>
+                <td>{acid.level}</td>
+                <td>{acid.casting_time}</td>
+                <td>{acid.duration}</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>{acidSplash.name}</td>
+                <td>{acidSplash.attack_type}</td>
+                <td>{acidSplash.level}</td>
+                <td>{acidSplash.casting_time}</td>
+                <td>{acidSplash.duration}</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>{aid.name}</td>
+                <td>Melee</td>
+                <td>{aid.level}</td>
+                <td>{aid.casting_time}</td>
+                <td>{aid.duration}</td>
+                </tr>
+                </tbody>
+                <p id="link"><a href="PropRendering.html">For Full information Click on This Text</a></p>
+          </table>
+        );
+      }
+      function CharContainer() {
+        return (
+          <div className="charContainer">
+            <CharBox  />
+          </div>
+        );
+      }
+      function CharBox() {
+        const [dwarf, setDwarf] = React.useState({});
+        React.useEffect(() => {
+          fetch("https://www.dnd5eapi.co/api/races/dwarf")
+            .then((response) => response.json())
+            .then((json) => setDwarf(json));
+        }, []);
+        return (
+          <div className="information animate__animated animate__zoomIn">
+            <img className="Dwarf-image" src="Dwarf.png" />
+            <div className="text-container">
+              <p>Race : {dwarf.name}</p>
+              <p>Age : {dwarf.age}</p>
+              <p>Speed : {dwarf.speed}</p>
+              <p> Size : {dwarf.size}</p>
+              <p>Alignment : {dwarf.alignment}</p>
+              <p>
+                Hunter Dwarfs are allowed to use spells <br />
+                you can see some of the spells at the bottom of the page in the
+                chart
+              </p>
+            </div>
+          </div>
+        );
+      }
+
+    
+      ReactDOM.render(
+        <>
+          <CharContainer />
+          <Container />
+        </>,
+        document.getElementById("root")
+      );
+    </script>
+  </body>
+</html>

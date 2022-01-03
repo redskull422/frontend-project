@@ -1,0 +1,100 @@
+<!--  // TODO: shuffle a list with setState and set keys to one of following (uid, index, random things every time)
+      // [...list.sort(() => Math.random() - 0.5)] We need to do this -->
+      <!DOCTYPE html>
+      <html>
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+              <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+              <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+              <title>BootCamp</title>
+              
+          </head>
+          <body>
+              <style>
+                  table{
+                      background-color :yellow ;
+                  }
+                  tr , td, th{
+                      border : 1px solid black ;
+                      height : 35px;
+                  }
+              </style>
+              <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+              <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+              <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+              <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+              <div id="root">
+      
+              </div>
+              <script type="text/babel">
+                  const thGenrator = (values) => {return(<th>{values}</th>)}
+                function PropRender(){
+                    const [acidSplash,setAcidSplash]=React.useState({})
+                        React.useEffect(() => {
+                            fetch('https://www.dnd5eapi.co/api/spells/acid-splash')
+                            .then(response => response.json())
+                            .then(json => setAcidSplash(json));
+                            },[]);
+                    const [aid,setAid]=React.useState({})
+                    React.useEffect(() => {
+                        fetch('https://www.dnd5eapi.co/api/spells/aid')
+                        .then(response => response.json())
+                        .then(json => setAid(json));
+                    },[]);
+                    let index = Object.keys(aid)
+                    return(
+                        <table>
+                            <thead>
+                                <tr>
+                                    {index.map(thGenrator)}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{aid.index}</td>
+                                    <td>{aid.name}</td>
+                                    <td>{aid.desc}</td>
+                                    <td>{aid.higher_level}</td>
+                                    <td>{aid.range}</td>
+                                    <td>{aid.components}</td>
+                                    <td>{aid.material}</td>
+                                    <td>{aid.ritual}</td>
+                                    <td>{aid.duration}</td>
+                                    <td>{aid.concentration}</td>
+                                    <td>{aid.casting_time}</td>
+                                    <td>{aid.level}</td>
+                                    <td>None</td>
+                                    <td>None</td>
+                                    <td>None</td>
+                                    <td>None</td>
+                                    <td>None</td>
+                                </tr>
+                                <tr>
+                                    <td>{acidSplash.index}</td>
+                                    <td>{acidSplash.name}</td>
+                                    <td>{acidSplash.desc}</td>
+                                    <td>{acidSplash.higher_level}</td>
+                                    <td>{acidSplash.range}</td>
+                                    <td>{acidSplash.components}</td>
+                                    <td>{acidSplash.material}</td>
+                                    <td>{acidSplash.ritual}</td>
+                                    <td>{acidSplash.duration}</td>
+                                    <td>{acidSplash.concentration}</td>
+                                    <td>{acidSplash.casting_time}</td>
+                                    <td>{acidSplash.level}</td>
+                                    <td>None</td>
+                                    <td>None</td>
+                                    <td>None</td>
+                                    <td>None</td>
+                                    <td>None</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    )
+                }
+                  ReactDOM.render(<PropRender/>,document.getElementById("root"))
+                
+              </script>
+          </body>
+      </html>
