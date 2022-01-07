@@ -1,0 +1,1 @@
+const dwarf = document.querySelector("#dwarf")
